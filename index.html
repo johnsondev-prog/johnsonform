@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Johnson Form Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Johnson Form Builder</h1>
+      <p>Design forms, preview them, and share/export JSON configuration.</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel builder-panel">
+        <div class="panel-header">
+          <h2>Builder</h2>
+          <div class="panel-actions">
+            <button id="saveSchemaBtn" class="btn">Save schema</button>
+            <button id="loadSchemaBtn" class="btn btn-ghost">Load schema</button>
+            <button id="exportSchemaBtn" class="btn btn-ghost">Export JSON</button>
+          </div>
+        </div>
+
+        <form id="newFieldForm" class="new-field-grid" autocomplete="off">
+          <label>
+            Field type
+            <select id="fieldType" required>
+              <option value="text">Text</option>
+              <option value="textarea">Textarea</option>
+              <option value="email">Email</option>
+              <option value="number">Number</option>
+              <option value="select">Select</option>
+              <option value="checkbox">Checkbox</option>
+              <option value="date">Date</option>
+            </select>
+          </label>
+
+          <label>
+            Label
+            <input id="fieldLabel" type="text" placeholder="Full Name" required />
+          </label>
+
+          <label>
+            Key
+            <input id="fieldKey" type="text" placeholder="full_name" required />
+          </label>
+
+          <label>
+            Placeholder
+            <input id="fieldPlaceholder" type="text" placeholder="Enter value" />
+          </label>
+
+          <label id="fieldOptionsWrap" class="full-width hidden">
+            Options (comma-separated)
+            <input id="fieldOptions" type="text" placeholder="Small,Medium,Large" />
+          </label>
+
+          <label class="checkbox-row">
+            <input id="fieldRequired" type="checkbox" /> Required
+          </label>
+
+          <button class="btn full-width" type="submit">Add field</button>
+        </form>
+
+        <div class="builder-list-wrap">
+          <h3>Current fields</h3>
+          <ul id="fieldList" class="field-list"></ul>
+          <p id="emptyBuilderState" class="empty-state">No fields yet. Add one to get started.</p>
+        </div>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="panel-header">
+          <h2>Preview</h2>
+          <div class="panel-actions">
+            <button id="resetResponsesBtn" class="btn btn-ghost">Reset answers</button>
+            <button id="submitPreviewBtn" class="btn">Submit</button>
+          </div>
+        </div>
+
+        <div class="progress-wrap" aria-live="polite">
+          <div id="progressLabel" class="progress-label">Progress: 0%</div>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        </div>
+
+        <form id="previewForm" class="preview-form"></form>
+        <p id="submitMessage" class="submit-message"></p>
+      </section>
+    </main>
+
+    <template id="fieldItemTemplate">
+      <li class="field-item">
+        <div class="field-meta"></div>
+        <div class="field-actions">
+          <button type="button" data-action="up" class="icon-btn" title="Move up">↑</button>
+          <button type="button" data-action="down" class="icon-btn" title="Move down">↓</button>
+          <button type="button" data-action="duplicate" class="icon-btn" title="Duplicate">⧉</button>
+          <button type="button" data-action="delete" class="icon-btn danger" title="Delete">✕</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
