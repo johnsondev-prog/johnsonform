@@ -3,43 +3,226 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Johnson Form</title>
+    <title>Portfolio | Web Development, Programming & Marketing</title>
     <style>
-      :root { color-scheme: light; }
+      :root {
+        color-scheme: light;
+        --bg: #0b1020;
+        --panel: #121a31;
+        --panel-soft: #17213f;
+        --text: #e2e8f0;
+        --muted: #a8b2cc;
+        --accent: #7c3aed;
+        --accent-2: #06b6d4;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
         font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-        background: #f5f7fb;
-        color: #0f172a;
-        min-height: 100vh;
+        background: radial-gradient(circle at 0% 0%, #172554 0%, var(--bg) 50%);
+        color: var(--text);
+      }
+
+      .container {
+        width: min(1080px, 92vw);
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 4rem 0 3rem;
+      }
+
+      .hero {
+        background: linear-gradient(140deg, rgba(124, 58, 237, 0.24), rgba(6, 182, 212, 0.18));
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 20px;
+        padding: clamp(1.5rem, 4vw, 3rem);
+        backdrop-filter: blur(2px);
+      }
+
+      .badge {
+        display: inline-block;
+        background: rgba(15, 23, 42, 0.5);
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        border-radius: 999px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        line-height: 1.1;
+        margin: 1rem 0;
+        max-width: 14ch;
+      }
+
+      .lead {
+        color: var(--muted);
+        line-height: 1.7;
+        max-width: 60ch;
+      }
+
+      .cta {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .button {
+        text-decoration: none;
+        border-radius: 10px;
+        padding: 0.7rem 1rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .button.primary {
+        color: var(--white);
+        background: linear-gradient(135deg, var(--accent), #9333ea);
+      }
+
+      .button.secondary {
+        color: var(--text);
+        border: 1px solid rgba(148, 163, 184, 0.45);
+      }
+
+      section {
+        margin-bottom: 2.5rem;
+      }
+
+      .grid {
         display: grid;
-        place-items: center;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       }
-      main {
-        width: min(680px, calc(100vw - 2rem));
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+
+      .card {
+        background: var(--panel);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 14px;
+        padding: 1.2rem;
       }
-      h1 { margin-top: 0; }
-      p { line-height: 1.5; }
-      code {
-        background: #f1f5f9;
-        border-radius: 6px;
-        padding: 0.1rem 0.4rem;
+
+      .card h3 {
+        margin: 0 0 0.5rem;
+      }
+
+      .card p,
+      .card li {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+      }
+
+      .pill-list li {
+        background: var(--panel-soft);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 999px;
+        padding: 0.4rem 0.7rem;
+        font-size: 0.85rem;
+      }
+
+      footer {
+        padding: 0 0 2.5rem;
+        color: var(--muted);
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1>Johnson Form is live ✅</h1>
-      <p>
-        This repository now includes a deployable homepage so Vercel serves a valid route instead of
-        <code>404: NOT_FOUND</code>.
-      </p>
-      <p>If you expected an app, this is the base landing page and can be replaced with your full project.</p>
+    <header class="container">
+      <div class="hero">
+        <span class="badge">Portfolio</span>
+        <h1>I build digital growth through code + strategy.</h1>
+        <p class="lead">
+          I help businesses grow by combining <strong>web development</strong>, <strong>programming</strong>, and
+          <strong>marketing</strong>. From high-performing websites to custom automation and conversion-focused campaigns,
+          I create solutions that look great and drive results.
+        </p>
+        <div class="cta">
+          <a href="#contact" class="button primary">Let’s work together</a>
+          <a href="#projects" class="button secondary">View work style</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section>
+        <h2>What I Do</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Web Development</h3>
+            <p>
+              Modern, responsive websites and landing pages designed for speed, accessibility, and clean user experience.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Programming</h3>
+            <p>
+              Custom features, integrations, and automation workflows that remove manual work and improve efficiency.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Marketing</h3>
+            <p>
+              SEO-friendly structure, compelling messaging, and campaign-ready funnels focused on conversions and growth.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>How I Deliver Value</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>End-to-End Execution</h3>
+            <ul>
+              <li>Plan and structure offers around customer intent.</li>
+              <li>Build performant pages with scalable code.</li>
+              <li>Track key metrics and optimize continuously.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>My Toolkit</h3>
+            <ul class="pill-list">
+              <li>HTML/CSS</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>APIs</li>
+              <li>SEO</li>
+              <li>Email Marketing</li>
+              <li>Analytics</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Let’s Build Something That Grows</h2>
+        <div class="card">
+          <p>
+            If you need a developer who understands business outcomes as well as technical execution, I’m ready to help.
+            Reach out to discuss your website, application, or marketing goals.
+          </p>
+          <p><strong>Email:</strong> yourname@email.com &nbsp; | &nbsp; <strong>Location:</strong> United States</p>
+        </div>
+      </section>
     </main>
+
+    <footer class="container">© 2026 Your Name — Web Development, Programming & Marketing.</footer>
   </body>
 </html>
