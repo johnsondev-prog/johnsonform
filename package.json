@@ -1,0 +1,38 @@
+{
+  "name": "johnsonform",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --pretty false && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --pretty false",
+    "lint": "eslint . --ext .ts,.tsx",
+    "test": "vitest run --passWithNoTests",
+    "verify:placeholders": "node scripts/verify-no-placeholders.mjs",
+    "prebuild": "npm run verify:placeholders",
+    "vercel-build": "npm run build"
+  },
+  "dependencies": {
+    "@clerk/clerk-react": "^5.27.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "resend": "^4.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
+    "@vercel/node": "^5.1.16",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "typescript": "^5.8.3",
+    "vite": "^5.4.19",
+    "vitest": "^2.1.9"
+  }
+}
