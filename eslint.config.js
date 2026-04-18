@@ -50,4 +50,14 @@ export default [
       ...tsPlugin.configs.recommended.rules,
     },
   },
+  {
+    files: ['scripts/**/*.mjs'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+      },
+    },
+    rules: {},
+  },
 ];
