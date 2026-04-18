@@ -3,43 +3,268 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Johnson Form</title>
+    <title>RelayDesk — Numbers, SMM, Payments</title>
+    <meta
+      name="description"
+      content="RelayDesk is a fast B2C utility platform for virtual number rentals, SMM order management, and secure payments."
+    />
     <style>
-      :root { color-scheme: light; }
+      :root {
+        color-scheme: light;
+        --bg: #f3f4f6;
+        --surface: #ffffff;
+        --ink: #0f172a;
+        --muted: #475569;
+        --line: #dbe2ea;
+        --brand: #2563eb;
+        --ok: #16a34a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
         font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-        background: #f5f7fb;
-        color: #0f172a;
-        min-height: 100vh;
+        color: var(--ink);
+        background: radial-gradient(circle at top left, #ffffff, var(--bg) 60%);
+      }
+
+      .shell {
+        width: min(1100px, calc(100vw - 2rem));
+        margin: 1.25rem auto 2.5rem;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .brand {
+        display: flex;
+        gap: 0.65rem;
+        align-items: center;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: var(--brand);
+      }
+
+      .chip {
+        padding: 0.4rem 0.75rem;
+        border-radius: 999px;
+        background: #e8f0ff;
+        color: #1d4ed8;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        padding: clamp(1.25rem, 2vw, 2rem);
         display: grid;
-        place-items: center;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 1rem;
       }
-      main {
-        width: min(680px, calc(100vw - 2rem));
-        background: #ffffff;
+
+      h1 {
+        margin: 0 0 0.6rem;
+        font-size: clamp(1.7rem, 3vw, 2.9rem);
+        line-height: 1.1;
+      }
+
+      .sub {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .stack {
+        display: grid;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .row {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+        color: #0b4a20;
+        font-weight: 600;
+      }
+
+      .cta {
+        display: flex;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        margin-top: 1.25rem;
+      }
+
+      .btn {
+        border: 1px solid transparent;
+        border-radius: 12px;
+        padding: 0.78rem 1rem;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+
+      .btn.primary {
+        background: var(--brand);
+        color: #fff;
+      }
+
+      .btn.ghost {
+        background: #fff;
+        color: var(--ink);
+        border-color: var(--line);
+      }
+
+      .panel {
+        background: #f8fafc;
         border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+        border-radius: 14px;
+        padding: 1rem;
       }
-      h1 { margin-top: 0; }
-      p { line-height: 1.5; }
-      code {
-        background: #f1f5f9;
-        border-radius: 6px;
-        padding: 0.1rem 0.4rem;
+
+      .panel h2 {
+        margin: 0 0 0.45rem;
+        font-size: 1rem;
+      }
+
+      .panel p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.93rem;
+        line-height: 1.5;
+      }
+
+      .grid {
+        margin-top: 1rem;
+        display: grid;
+        gap: 0.75rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .kpis {
+        margin-top: 1rem;
+        display: grid;
+        gap: 0.75rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .kpi {
+        padding: 1rem;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .kpi strong {
+        display: block;
+        font-size: 1.3rem;
+      }
+
+      .kpi span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      footer {
+        margin-top: 1rem;
+        padding: 1rem 1.25rem;
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 860px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .grid,
+        .kpis {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1>Johnson Form is live ✅</h1>
-      <p>
-        This repository now includes a deployable homepage so Vercel serves a valid route instead of
-        <code>404: NOT_FOUND</code>.
-      </p>
-      <p>If you expected an app, this is the base landing page and can be replaced with your full project.</p>
-    </main>
+    <div class="shell">
+      <header class="card">
+        <div class="brand"><span class="dot" aria-hidden="true"></span>RelayDesk</div>
+        <div class="chip">Minimal. Fast. Reliable.</div>
+      </header>
+
+      <main class="card hero">
+        <section>
+          <h1>Numbers, SMM, and payments — one clean customer flow.</h1>
+          <p class="sub">
+            RelayDesk combines 5SIM number rentals, Owlet/Outlet SMM service ordering, and Paystack payment
+            processing into a simple B2C platform optimized for speed and trust.
+          </p>
+
+          <div class="stack">
+            <div class="row">✅ Wallet funding + reconciliation</div>
+            <div class="row">✅ Instant order placement and status tracking</div>
+            <div class="row">✅ Serverless architecture ready for Vercel</div>
+          </div>
+
+          <div class="cta">
+            <a class="btn primary" href="#mvp">View MVP Scope</a>
+            <a class="btn ghost" href="./PRD_EXECUTION_PLAYBOOK.md">Read Execution PRD</a>
+          </div>
+        </section>
+
+        <aside class="panel">
+          <h2>Execution Stack</h2>
+          <p>Vite + TypeScript frontend, Clerk authentication, Paystack payments, 5SIM + Owlet adapters, Resend notifications, Postgres ledger, and Vercel serverless runtime.</p>
+        </aside>
+
+        <section id="mvp" class="grid" aria-label="MVP modules">
+          <article class="panel">
+            <h2>Wallet & Payments</h2>
+            <p>Fund wallet via Paystack and reconcile through signed webhooks with idempotent ledger updates.</p>
+          </article>
+          <article class="panel">
+            <h2>5SIM Rentals</h2>
+            <p>Browse available products, rent numbers, monitor OTP state, and auto-refund on timeout failures.</p>
+          </article>
+          <article class="panel">
+            <h2>SMM Orders</h2>
+            <p>Sync service catalog from Owlet/Outlet and provide clear lifecycle statuses from queued to completed.</p>
+          </article>
+        </section>
+
+        <section class="kpis" aria-label="Launch KPI targets">
+          <article class="kpi"><strong>&gt;99%</strong><span>Payment-to-fulfillment reconciliation target</span></article>
+          <article class="kpi"><strong>&lt;500ms</strong><span>Internal API p95 latency target</span></article>
+          <article class="kpi"><strong>1,000</strong><span>First transacting users milestone</span></article>
+        </section>
+      </main>
+
+      <footer class="card">
+        <span>Built for execution, not decoration.</span>
+        <span>Deploy target: Vercel serverless.</span>
+      </footer>
+    </div>
   </body>
 </html>
